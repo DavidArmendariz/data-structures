@@ -4,7 +4,7 @@
   "description": "In this repo, you can find implementations and problems of the basic data structures you may want to know.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
