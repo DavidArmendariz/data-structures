@@ -1,6 +1,4 @@
-const { SinglyLinkedList, SinglyLinkedListNode } = require("../linked-list");
-const { insertNodeAtTail } = require("../insert-node-at-tail");
-const { printLinkedList } = require("../print-linked-list");
+const { SinglyLinkedListNode } = require("../linked-list");
 
 function insertNodeAtPosition(head, data, position) {
   if (head === null) {
@@ -22,23 +20,6 @@ function insertNodeAtPosition(head, data, position) {
     currentNode = currentNode.next;
   }
   return head;
-}
-
-function main() {
-  const linkedList = new SinglyLinkedList();
-  linkedList.head = insertNodeAtTail(linkedList.head, 16);
-  insertNodeAtTail(linkedList.head, 13);
-  insertNodeAtTail(linkedList.head, 7);
-  console.log("Before:");
-  printLinkedList(linkedList.head);
-  insertNodeAtPosition(linkedList.head, 1, 2);
-  console.log("\n");
-  console.log("After:");
-  printLinkedList(linkedList.head);
-}
-
-if (require.main === module) {
-  main();
 }
 
 module.exports = {
