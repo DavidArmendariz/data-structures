@@ -1,22 +1,17 @@
-const { SinglyLinkedList, SinglyLinkedListNode } = require("../linked-list");
+const { SinglyLinkedList } = require("../linked-list");
 const { insertNodeAtTail } = require("../insert-node-at-tail");
 const { printLinkedList } = require("../print-linked-list");
 
-function insertNodeAtPosition(head, data, position) {
-  if (head === null) {
-    return new SinglyLinkedListNode(data);
-  }
+function deleteNodeAtPosition(head, position) {
   let currentPosition = 0;
-  let currentNode = head;
   let previousNode = head;
+  let currentNode = head;
   while (currentPosition <= position && currentNode !== null) {
     if (currentPosition === position) {
       while (previousNode.next !== currentNode) {
         previousNode = previousNode.next;
       }
-      const newNode = new SinglyLinkedListNode(data);
-      previousNode.next = newNode;
-      newNode.next = currentNode;
+      previousNode.next = currentNode.next;
     }
     currentPosition++;
     currentNode = currentNode.next;
@@ -26,12 +21,17 @@ function insertNodeAtPosition(head, data, position) {
 
 function main() {
   const linkedList = new SinglyLinkedList();
-  linkedList.head = insertNodeAtTail(linkedList.head, 16);
-  insertNodeAtTail(linkedList.head, 13);
+  linkedList.head = insertNodeAtTail(linkedList.head, 20);
+  insertNodeAtTail(linkedList.head, 6);
+  insertNodeAtTail(linkedList.head, 2);
+  insertNodeAtTail(linkedList.head, 19);
   insertNodeAtTail(linkedList.head, 7);
+  insertNodeAtTail(linkedList.head, 4);
+  insertNodeAtTail(linkedList.head, 15);
+  insertNodeAtTail(linkedList.head, 9);
   console.log("Before:");
   printLinkedList(linkedList.head);
-  insertNodeAtPosition(linkedList.head, 1, 2);
+  deleteNodeAtPosition(linkedList.head, 3);
   console.log("\n");
   console.log("After:");
   printLinkedList(linkedList.head);
@@ -42,5 +42,5 @@ if (require.main === module) {
 }
 
 module.exports = {
-  insertNodeAtPosition,
+  deleteNodeAtPosition,
 };
