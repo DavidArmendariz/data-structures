@@ -1,4 +1,4 @@
-import { Node } from "../node.mjs";
+const { Node } = require("../node");
 
 /**
  *  Inorder traversal (Left, Root, Right)
@@ -23,4 +23,8 @@ function main() {
   inOrder(root);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { inOrder };

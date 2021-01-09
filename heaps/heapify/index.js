@@ -1,4 +1,4 @@
-import { swap } from "../../utils/swap.mjs";
+const { swap } = require("../../utils/swap");
 
 class Heap {
   heapifyMax(arr, i) {
@@ -45,9 +45,17 @@ class Heap {
   }
 }
 
-const heap = new Heap();
-const arr = [3, 9, 2, 1, 4, 5];
-heap.heapify(arr);
-console.log("Min heap:", arr);
-heap.heapify(arr, "max");
-console.log("Max heap:", arr);
+function main() {
+  const heap = new Heap();
+  const arr = [3, 9, 2, 1, 4, 5];
+  heap.heapify(arr);
+  console.log("Min heap:", arr);
+  heap.heapify(arr, "max");
+  console.log("Max heap:", arr);
+}
+
+if (require.main === module) {
+  main();
+}
+
+module.exports = { Heap };

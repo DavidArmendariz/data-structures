@@ -1,4 +1,4 @@
-import { Node } from "../node.mjs";
+const { Node } = require("../node");
 
 /**
  * In this version the time complexity si O(n^2)
@@ -35,4 +35,8 @@ function main() {
   levelOrderTraversal(root);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { levelOrderTraversal };

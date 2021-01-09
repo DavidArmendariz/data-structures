@@ -1,5 +1,5 @@
-import { SinglyLinkedListNode, SinglyLinkedList } from "../linked-list.mjs";
-import { printLinkedList } from "../print-linked-list/index.mjs";
+const { SinglyLinkedListNode, SinglyLinkedList } = require("../linked-list");
+const { printLinkedList } = require("../print-linked-list");
 
 function insertNodeAtTail(head, data) {
   if (head === null) {
@@ -24,4 +24,10 @@ function main() {
   printLinkedList(linkedList.head);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = {
+  insertNodeAtTail,
+};

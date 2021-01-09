@@ -1,17 +1,17 @@
-import { Node } from "../node.mjs";
+const { Node } = require("../node");
 
 /**
- *  Inorder traversal (Left, Right, Root)
+ *  Inorder traversal (Root, Left, Right)
  */
 
-function postOrder(root) {
+function preOrder(root) {
   if (root.left === null && root.right === null) {
     console.log(root.value);
     return;
   }
-  postOrder(root.left);
-  postOrder(root.right);
   console.log(root.value);
+  preOrder(root.left);
+  preOrder(root.right);
 }
 
 function main() {
@@ -20,7 +20,11 @@ function main() {
   root.right = new Node(3);
   root.left.left = new Node(4);
   root.left.right = new Node(5);
-  postOrder(root);
+  preOrder(root);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { preOrder };
