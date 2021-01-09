@@ -2,6 +2,14 @@ function deleteNodeAtPosition(head, position) {
   if (head === null) {
     return head;
   }
+  if (position === 0) {
+    if (head.next === null) {
+      head = null;
+    } else {
+      head = head.next;
+    }
+    return head;
+  }
   let currentPosition = 0;
   let previousNode = head;
   let currentNode = head;
